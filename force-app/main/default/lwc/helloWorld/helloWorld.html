@@ -1,0 +1,15 @@
+<!--
+  @description       : 
+  @author            : esteban@incompany.cr
+  @group             : 
+  @last modified on  : 06-11-2022
+  @last modified by  : esteban@incompany.cr
+-->
+<template>
+    <lightning-card title="Hello World">
+        <div class="slds-m-around-medium">
+            <p>Hello, {greeting}</p>
+            <lightning-input label="Name" value={greeting} onchange={changeHandler}></lightning-input>
+        </div>
+    </lightning-card>
+</template>
