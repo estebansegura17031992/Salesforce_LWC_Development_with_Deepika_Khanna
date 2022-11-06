@@ -1,0 +1,16 @@
+<!--
+  @description       : 
+  @author            : esteban@incompany.cr
+  @group             : 
+  @last modified on  : 06-11-2022
+  @last modified by  : esteban@incompany.cr
+-->
+<template>
+    <lightning-card title="Hello For Each">
+        <ul class="slds-m-around-medium">
+            <template for:each={contacts} for:item="contact">
+                <li key={contact.id}>{contact.Name},{contact.Title}</li>
+            </template>
+        </ul>
+    </lightning-card>
+</template>
