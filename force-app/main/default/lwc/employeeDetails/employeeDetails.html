@@ -1,0 +1,18 @@
+<!--
+  @description       : 
+  @author            : esteban@incompany.cr
+  @group             : 
+  @last modified on  : 06-11-2022
+  @last modified by  : esteban@incompany.cr
+-->
+<template>
+    <lightning-card title="Employee Details">
+        <ul>
+            <template for:each={empDetails} for:item="emp">
+                <li key={emp.empName} style="padding:10px">
+                    <c-employee-detail emp-detail={emp}></c-employee-detail>
+                </li>
+            </template>
+        </ul>
+    </lightning-card>
+</template>
