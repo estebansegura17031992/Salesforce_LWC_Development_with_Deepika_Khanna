@@ -1,0 +1,21 @@
+<!--
+  @description       : 
+  @author            : esteban@incompany.cr
+  @group             : 
+  @last modified on  : 08-11-2022
+  @last modified by  : esteban@incompany.cr
+-->
+<template>
+    <lightning-card title="Create Contact">
+        <lightning-layout>
+            <lightning-layout-item size="6" padding="around_small">
+                <lightning-card title="Create New Contact">
+                    <lightning-input name="Contact Name" label="Name" onchange={contactNameChangeHandler}></lightning-input>
+                    <lightning-input name="Contact Emai" label="Emai" onchange={contactEmailChangeHandler}></lightning-input>
+                    <lightning-input name="Contact Phone" label="Phone" onchange={contactPhoneChangeHandler}></lightning-input>
+                    <lightning-button label="Create Contact" onclick={createContact} variant="brand"></lightning-button> 
+                </lightning-card>
+            </lightning-layout-item>
+        </lightning-layout>
+    </lightning-card>
+</template>
