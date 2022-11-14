@@ -1,18 +1,106 @@
-# Salesforce DX Project: Next Steps
+# Notes in the course Salesforce Lightning Web Component Development with Deepika Khanna
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+## SFDX commands structure
 
-## How Do You Plan to Deploy Your Changes?
+namespace:topic:command
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
+## Interesting commands found:
 
-## Configure Your Salesforce DX Project
+### Create a project
 
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
+`sfdx force:project:create -n ProjectName`
 
-## Read All About It
+### Auth org
 
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
+`sfdx force:auth:web:login -a localAliasOrg -d`
+
+### Create Scratch
+
+`sfdx force:org:create -a localAliasOrg -d 30 -f configFileLocation`
+
+### Set Default Org in local Project
+
+`sfdx force:config:set defaultusername=selectedOrg`
+
+### List SFDX commands
+
+`sfdx commands`
+
+### Create a class
+
+`sfdx force:apex:class:create -n ClassName -d Path -t DefaultApexClass|ApexException|ApexUnitTest|InboundEmailService`
+
+### Create Lightning Web Component
+
+`sfdx force:lightning:component:create -n Name -d Path type aura|lwc`
+
+### Push changes to Default org
+
+`sfdx force:source:push`
+
+### Open Default org
+
+`sfdx force:org:open`
+
+### Common Used for Udemy tutorial about LWC with Depkaah
+
+- `sfdx force:lightning:component:create -n Name -d Path -type aura|lwc`
+- `sfdx force:source:push`
+- `sfdx force:org:open`
+
+## Lightning Web Component Structure
+
+- .html
+- .js
+- .js-meta.xml
+
+## Configuring Lightning Web Components
+
+Set **_isExposed_** to true
+
+- \<isExposed>true\</isExposed>
+
+#### Set targets to use LWC in Lighning Record Page, Lightning Home Page or Lightning App Page
+
+```XML
+<targets>
+    <target>lightning__RecordPage</target>
+    <target>lightning__HomePage</target>
+    <target>lightning__AppPage</target>
+</targets>
+```
+
+#### Decorator
+
+- `@track`: makes the property reactive so whenever the value of the property changes, it will render the component
+- Important note: Salesforce track properties without @track decorator
+- `@api` makes the property public and reactive
+- `@wire`
+
+#### Rendering Components Conditionally in LWC
+
+- if:true
+- if:false
+
+#### Rendering List of items in LWC
+
+- for:each={colection} for:item "item"
+- iterator:it={colection}
+
+## Lightning Web Components Communication
+
+- Communication using Method in LWC (Parent to Child)
+- Custom Event Communication in LWC (Child to Parent)
+- Publish Suscriber model in LWC (two components wich doesn't have a direct relation)
+
+## Working with records inside LWC
+
+### Lightning Data Service
+
+### Base Component
+
+- lightning-record-view-form
+- lightning-record-edit-form
+- lightning-record-form
+
+### Fetch records via Apex
