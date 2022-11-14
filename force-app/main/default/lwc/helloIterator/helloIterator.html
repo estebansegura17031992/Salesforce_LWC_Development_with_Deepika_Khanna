@@ -1,0 +1,20 @@
+<!--
+  @description       : 
+  @author            : esteban@incompany.cr
+  @group             : 
+  @last modified on  : 06-11-2022
+  @last modified by  : esteban@incompany.cr
+-->
+<template>
+    <lightning-card title="Hello Iterator">
+        <ul class="slds-m-around-medium">
+            <template iterator:it={contacts}>
+                <li key={it.value.id}>
+                    <div if:true={it.first} class="list-first"></div>
+                    {it.value.Name},{it.value.Title}
+                    <div if:true={it.last} class="list-last"></div> 
+                </li>
+            </template>
+        </ul>
+    </lightning-card>
+</template>
